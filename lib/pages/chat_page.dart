@@ -10,10 +10,25 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  
   List<ChatModel> chats = [
-      name: "Naveen Kumar"
-      isGroup: false
+    ChatModel(
+      name: "Naveen Kumar",
+      isGroup: false,
+      currentMessage: "Hi Everyone",
+      time: "4:00",
+    ),
+    ChatModel(
+      name: "Testing",
+      isGroup: false,
+      currentMessage: "Its Flutter Clone",
+      time: "13:00",
+    ),
+    ChatModel(
+      name: "Working Perfect",
+      isGroup: false,
+      currentMessage: "Lets Rock",
+      time: "2:30",
+    )
   ];
 
   @override
@@ -24,13 +39,11 @@ class _ChatPageState extends State<ChatPage> {
         onPressed: null,
         child: Icon(Icons.chat),
       ),
-      body: ListView(
-        children: const [
-          ChatTileWidget(),
-          ChatTileWidget(),
-          ChatTileWidget(),
-          ChatTileWidget(),
-        ],
+      body: ListView.builder(
+        itemCount: chats.length,
+        itemBuilder: (context, index) => ChatTileWidget(
+          chatModel: chats[index],
+        ),
       ),
     );
   }

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:whatsapp_app_ui/model/chat_model.dart';
 
 class ChatTileWidget extends StatelessWidget {
-  const ChatTileWidget({Key? key}) : super(key: key);
+  const ChatTileWidget({Key? key, required this.chatModel}) : super(key: key);
+
+  final ChatModel chatModel;
 
   @override
   Widget build(BuildContext context) {
@@ -10,21 +14,19 @@ class ChatTileWidget extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            leading: const CircleAvatar(
-              radius: 23,
-              backgroundColor: Colors.grey,
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(0, 5.5, 0, 0),
-                child: Icon(
-                  Icons.person,
-                  size: 48,
-                  color: Colors.white,
-                ),
+            leading: CircleAvatar(
+              radius: 30,
+              child: SvgPicture.asset(
+                "assets/person.svg",
+                color: Colors.white,
+                height: 36,
+                width: 36,
               ),
+              backgroundColor: Colors.blueGrey,
             ),
-            title: const Text(
-              'Naveen Kumar',
-              style: TextStyle(
+            title: Text(
+              chatModel.name,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
@@ -39,7 +41,7 @@ class ChatTileWidget extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text("Developed by Naveen"),
+                Text(chatModel.currentMessage),
               ],
             ),
             trailing: const Padding(
