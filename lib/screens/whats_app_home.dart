@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_app_ui/pages/chat_page.dart';
 
 class WhatsAppHome extends StatefulWidget {
   const WhatsAppHome({Key? key}) : super(key: key);
@@ -8,12 +9,12 @@ class WhatsAppHome extends StatefulWidget {
 
 class _WhatsAppHomeState extends State<WhatsAppHome>
     with SingleTickerProviderStateMixin {
-  TabController _controller;
+  TabController? _controller;
 
   @override
   void initState() {
-    super.initState();
     _controller = TabController(length: 4, vsync: this, initialIndex: 1);
+    super.initState();
   }
 
   @override
@@ -77,7 +78,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
             controller: _controller,
             children: const [
               Text('Camera'),
-              Text('Chats'),
+              ChatPage(),
               Text('Status'),
               Text('Calls'),
             ],
