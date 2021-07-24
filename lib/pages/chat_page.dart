@@ -19,15 +19,21 @@ class _ChatPageState extends State<ChatPage> {
     ),
     ChatModel(
       name: "Testing",
-      isGroup: false,
+      isGroup: true,
       currentMessage: "Its Flutter Clone",
       time: "13:00",
     ),
     ChatModel(
       name: "Working Perfect",
-      isGroup: false,
+      isGroup: true,
       currentMessage: "Lets Rock",
       time: "2:30",
+    ),
+    ChatModel(
+      name: "WhatsApp UI Clone",
+      isGroup: true,
+      currentMessage: "Lets Rock",
+      time: "8:30",
     )
   ];
 

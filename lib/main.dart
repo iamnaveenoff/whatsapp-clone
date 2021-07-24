@@ -1,7 +1,11 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_app_ui/screens/camera_screen.dart';
 import 'package:whatsapp_app_ui/screens/whats_app_home.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(
     const WhatsAppUi(),
   );

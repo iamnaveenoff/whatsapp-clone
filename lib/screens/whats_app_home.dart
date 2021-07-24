@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_app_ui/pages/camera_page.dart';
 import 'package:whatsapp_app_ui/pages/chat_page.dart';
 
 class WhatsAppHome extends StatefulWidget {
@@ -77,7 +78,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           body: TabBarView(
             controller: _controller,
             children: const [
-              Text('Camera'),
+              CameraPage(),
               ChatPage(),
               Text('Status'),
               Text('Calls'),

@@ -1,7 +1,7 @@
 class ChatModel {
-  String name;
+  String? name;
   String? icon;
-  bool? isGroup;
+  bool isGroup;
   String? time;
   String? currentMessage;
   String? status;
@@ -10,7 +10,7 @@ class ChatModel {
   ChatModel({
     this.name,
     this.icon,
-    this.isGroup,
+    required this.isGroup,
     this.time,
     this.currentMessage,
     this.status,

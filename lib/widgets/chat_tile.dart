@@ -17,7 +17,7 @@ class ChatTileWidget extends StatelessWidget {
             leading: CircleAvatar(
               radius: 30,
               child: SvgPicture.asset(
-                "assets/person.svg",
+                chatModel.isGroup? "assets/group.svg" : "assets/person.svg",
                 color: Colors.white,
                 height: 36,
                 width: 36,
@@ -25,28 +25,28 @@ class ChatTileWidget extends StatelessWidget {
               backgroundColor: Colors.blueGrey,
             ),
             title: Text(
-              chatModel.name,
+              chatModel.name.toString(),
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
             ),
             subtitle: Row(
-              children: const [
-                Icon(
+              children: [
+                const Icon(
                   Icons.done_all,
                   size: 15,
                   color: Colors.grey,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                Text(chatModel.currentMessage),
+                Text(chatModel.currentMessage.toString()),
               ],
             ),
-            trailing: const Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
-              child: Text("6:02 pm"),
+            trailing: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+              child: Text(chatModel.time.toString()),
             ),
           ),
           const Padding(
